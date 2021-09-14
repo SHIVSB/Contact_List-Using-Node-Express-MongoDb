@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/home.css">
+        <link href="/styles.css" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    </head>
+    <body class="font-mono  margin:0px" style="background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);">
+        <h1 class="text-3xl py-4"><i class="fas fa-id-card"></i>Contacts List!!!!</h1>
+    <div id="page-heading">
+        <ul>
+            <% for (let i of contact_list) { %>
+            <li>
+                <div>
+                <p style="padding: 5px; background-color: white" class="text-l">
+                    <%= i.name%> <%=i.phone%>
+                </p>
+                </div>
+                <div>
+                    <a href="/delete-contact/?id=<%=i._id %>">
+                        <i class="fas fa-minus-circle"></i>
+                    </a>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+
+    </div>
+
+        <div class="container ml-52">
+            <div class="flex justify-center px-6 my-12">
+                <!-- Row -->
+                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                    <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                        <h3 class="pt-4 text-2xl text-center">Add Contact</h3>
+                        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" action="/create-contact" method="POST">
+                            <div class="mb-4 md:flex  md:justify-center">
+                                <div class="mb-4 md:mr-2 md:mb-0 ">
+                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="firstName">
+                                        First Name
+                                    </label>
+                                    <input
+                                            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline md:flex md:justify-between"
+                                            id="Enter the Name"
+                                            type="text"
+                                            name="name"
+                                            placeholder="First Name"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="mb-4 md:flex md:justify-center">
+                                <div class="mb-4 md:mr-2 md:mb-0 ">
+                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                        Phone Number
+                                    </label>
+                                    <input
+                                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                            type="number"
+                                            name="phone"
+                                            placeholder="Enter the Phone Number"
+                                    />
+                                    <p class="text-xs italic text-red-500">Please enter the Phone Number</p>
+                                </div>
+                            </div>
+                            <div class="mb-6 text-center">
+                                <button
+                                        class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                        type="submit">
+                                    Add Now
+                                </button>
+                            </div>
+                            <hr class="mb-6 border-t" />
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script type="text/javascript" src="/js/home.js "/>
+    </body>
+
+</html>
